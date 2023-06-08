@@ -102,8 +102,8 @@ function handleSelectionChange(selection) {
 // 查询表数据
 function getList() {
   unallocatedUserList(queryParams).then(res => {
-    userList.value = res.rows;
-    total.value = res.total;
+    userList.value = res.data.list;
+    total.value = res.data.total;
   });
 }
 /** 搜索按钮操作 */
@@ -126,7 +126,7 @@ function handleSelectUser() {
     return;
   }
   authUserSelectAll({ roleId: roleId, userIds: uIds }).then(res => {
-    proxy.$modal.msgSuccess(res.msg);
+    proxy.$modal.msgSuccess(res.message);
     if (res.code === 200) {
       visible.value = false;
       emit("ok");

@@ -158,7 +158,7 @@ function submitForm() {
         parentMenuId: info.value.parentMenuId
       };
       updateGenTable(genTable).then(res => {
-        proxy.$modal.msgSuccess(res.msg);
+        proxy.$modal.msgSuccess(res.message);
         if (res.code === 200) {
           close();
         }
@@ -185,7 +185,7 @@ function close() {
   if (tableId) {
     // 获取表详细信息
     getGenTable(tableId).then(res => {
-      columns.value = res.data.rows;
+      columns.value = res.data.data.list;
       info.value = res.data.info;
       tables.value = res.data.tables;
     });

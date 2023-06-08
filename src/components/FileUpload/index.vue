@@ -139,7 +139,7 @@ function handleUploadSuccess(res, file) {
   } else {
     number.value--;
     proxy.$modal.closeLoading();
-    proxy.$modal.msgError(res.msg);
+    proxy.$modal.msgError(res.message);
     proxy.$refs.fileUpload.handleRemove(file);
     uploadedSuccessfully();
   }

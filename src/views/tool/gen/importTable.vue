@@ -82,8 +82,8 @@ function handleSelectionChange(selection) {
 /** 查询表数据 */
 function getList() {
   listDbTable(queryParams).then(res => {
-    dbTableList.value = res.rows;
-    total.value = res.total;
+    dbTableList.value = res.data.list;
+    total.value = res.data.total;
   });
 }
 /** 搜索按钮操作 */
@@ -104,7 +104,7 @@ function handleImportTable() {
     return;
   }
   importTable({ tables: tableNames }).then(res => {
-    proxy.$modal.msgSuccess(res.msg);
+    proxy.$modal.msgSuccess(res.message);
     if (res.code === 200) {
       visible.value = false;
       emit("ok");

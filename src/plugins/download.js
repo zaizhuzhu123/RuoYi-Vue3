@@ -65,7 +65,7 @@ export default {
   async printErrMsg(data) {
     const resText = await data.text();
     const rspObj = JSON.parse(resText);
-    const errMsg = errorCode[rspObj.code] || rspObj.msg || errorCode['default']
+    const errMsg = errorCode[rspObj.code] || rspObj.message || errorCode['default']
     ElMessage.error(errMsg);
   }
 }
